@@ -8,12 +8,17 @@
 
 #import "do_SinaWeiBo_App.h"
 #import "WeiboSDK.h"
+#import "doServiceContainer.h"
+#import "doIModuleExtManage.h"
+
 
 @implementation do_SinaWeiBo_App
+@synthesize ThridPartyID;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSString *sinaKey = [[doServiceContainer Instance].ModuleExtManage GetThirdAppKey:@"do_SinaWeiBo.plist" :@"EASEMOB_APPKEY"];
     [WeiboSDK enableDebugMode:YES];
-    [WeiboSDK registerApp:kAppKey];
+    [WeiboSDK registerApp:@"1226508063"];
     return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application
